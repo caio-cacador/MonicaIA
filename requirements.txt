@@ -7,10 +7,4 @@ future
 fake-useragent
 telepot
 https://github.com/abenassi/Google-Search-API.git@master
--e git+git://github.com/abenassi/Google-Search-API.git@master
 
-
-[-e] git+git://git.myproject.org/SomeProject#egg=SomeProject
-[-e] git+https://git.myproject.org/SomeProject#egg=SomeProject
-[-e] git+ssh://git.myproject.org/SomeProject#egg=SomeProject
--e git+git@git.myproject.org:SomeProject#egg=SomeProject
