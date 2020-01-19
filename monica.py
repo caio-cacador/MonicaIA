@@ -12,7 +12,10 @@ class Monica:
         self.bot = bot
     # chat_id = -1001318092698
 
-    def message_interpreter(self, message: str, chat_id):
+    def message_interpreter(self, message: str, firt_name: str, chat_id):
+        if firt_name == 'Adriano':
+            self._response('Desculpe Adriano, não posso conversar com nóias por enquanto.', chat_id)
+
         if self._is_what_is_question(message):
             self._response('Deixe me ver...', chat_id)
             self._response(self._what_is(message), chat_id)

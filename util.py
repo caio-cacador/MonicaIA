@@ -35,9 +35,11 @@ class Utils:
         paragraphs = soup.findAll(name='p')
         complete_answer = []
         for p in paragraphs:
-            if theme in str(p) and 'é' in str(p) and 'http' not in str(p):
-                string = re.sub(TAG_FILTER, '', str(p))
-                complete_answer.append(string.replace('.,', '.').replace(': ;', ';'))
-                # fim
-                if re.findall("\.$", str(string)):
-                    return complete_answer[0]
+            phrase = str(p)
+            if 'http' not in phrase:
+                if theme in phrase and 'é' in phrase:
+                    string = re.sub(TAG_FILTER, '', str(p))
+                    complete_answer.append(string.replace('.,', '.').replace(': ;', ';'))
+                    # fim
+                    if re.findall("\.$", str(string)):
+                        return complete_answer[0]

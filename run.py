@@ -21,7 +21,8 @@ def handle(msg):
             message = message[7::].strip()
             if message:
                 chat_id = msg['chat']['id']
-                monica.message_interpreter(message=message, chat_id=chat_id)
+                firt_name = str(msg['from']['first_name'])
+                monica.message_interpreter(message=message, chat_id=chat_id, firt_name=firt_name)
     except Exception as ex:
         print('[-] Erros >> ', ex)
 
