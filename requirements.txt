@@ -6,5 +6,5 @@ vcrpy
 future
 fake-useragent
 telepot
-https://github.com/abenassi/Google-Search-API.git@master
+Google-Search-API
 
