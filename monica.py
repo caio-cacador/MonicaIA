@@ -1,10 +1,10 @@
+import random
+
 import telepot
-from telepot.loop import MessageLoop
-import requests
-from bs4 import BeautifulSoup
 from util import Utils
 from google import google
-from constants import LINK_FILTER, MONICA_FILTER, TAG_FILTER, TOKEN, URL_SEARCH, WHAT_IS_INTERPRETER, WHO_IS_INTERPRETER
+from constants import LINK_FILTER, MONICA_FILTER, TAG_FILTER, TOKEN, URL_SEARCH, WHAT_IS_INTERPRETER, \
+    WHO_IS_INTERPRETER, CONVERSATION_INTERPRETER, NORMAL_GREETING, INFORMAL_GREETING, GREETING_WITH_QUESTION
 
 
 class Monica:
@@ -13,6 +13,7 @@ class Monica:
     # chat_id = -1001318092698
 
     def message_interpreter(self, message: str, firt_name: str, chat_id):
+
         if firt_name == 'Adriano':
             self._response('Desculpe Adriano, não posso conversar com nóias por enquanto.', chat_id)
 
@@ -22,6 +23,9 @@ class Monica:
         elif self._is_who_is_question(message):
             self._response('Deixe me ver...', chat_id)
             self._response(self._who_is(message), chat_id)
+        elif self._is_it_a_conversation(message):
+            response = self._talk(message).replace('vc', 'você')
+            self._response(response, chat_id)
 
     def _what_is(self, question):
         theme = self._what_is_interpretor(question)
@@ -63,6 +67,20 @@ class Monica:
         except Exception as ex:
             print('Error >>>', ex)
 
+    @staticmethod
+    def _talk(phrase):
+        # words = phrase.split(' ')
+        # if words[0] == 'oi'
+        for gretting in NORMAL_GREETING:
+            if gretting in phrase:
+                return random.choice(NORMAL_GREETING).capitalize()
+        for gretting in INFORMAL_GREETING:
+            if gretting in phrase:
+                return random.choice(INFORMAL_GREETING).capitalize()
+        for gretting in GREETING_WITH_QUESTION:
+            if gretting in phrase:
+                return 'Estou bem, e vc, ' + random.choice(GREETING_WITH_QUESTION) + '?'
+
     def _response(self, msg: str, chat_id):
         try:
             self.bot.sendMessage(chat_id, msg)
@@ -93,6 +111,14 @@ class Monica:
     @staticmethod
     def _is_who_is_question(msg: str):
         for item in WHO_IS_INTERPRETER:
+            if item in msg:
+                return True
+        return False
+
+    @staticmethod
+    def _is_it_a_conversation(msg: str):
+        msg = msg.replace('voce', 'vc')
+        for item in CONVERSATION_INTERPRETER:
             if item in msg:
                 return True
         return False

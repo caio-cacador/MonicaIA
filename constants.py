@@ -2,11 +2,21 @@ TOKEN = "891967726:AAF4iR0AknoObf_L-rwKIwjIxzeGtYdeTM4"
 
 URL_SEARCH = 'https://www.ecosia.org/search?q=o+que+é+BUSCAR'
 
-WHAT_IS_INTERPRETER = ('o que é', 'o q é', 'oq é', 'o que eh', 'o q eh', 'oque é')
 
-WHO_IS_INTERPRETER = ('quem é', 'quem e', 'quem eh')
+NORMAL_GREETING = ('oi', 'ola')
 
-MONICA_FILTER = ('monica', 'mônica')
+INFORMAL_GREETING = ('eai', 'e ai', 'e ae', 'fala ai', 'suave')
+
+GREETING_WITH_QUESTION = ('tudo bem', 'td bem', 'como vc vai', 'como vc esta')
+
+CONVERSATION_INTERPRETER = (NORMAL_GREETING + INFORMAL_GREETING + GREETING_WITH_QUESTION)
+
+
+WHAT_IS_INTERPRETER = ('o que e', 'o q e', 'oq e', 'o que eh', 'o q eh', 'oque e')
+
+WHO_IS_INTERPRETER = ('quem e', 'quem e', 'quem eh')
+
+MONICA_FILTER = ('monica')
 
 LINK_FILTER = ('www.buscape', 'www.fastshop', 'www.zoom', 'www.magazineluiza', 'www.xvideos', 'www.porhub')
 
