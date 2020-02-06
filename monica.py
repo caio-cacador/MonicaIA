@@ -75,8 +75,6 @@ class Monica:
 
     @staticmethod
     def _talk(phrase):
-        # words = phrase.split(' ')
-        # if words[0] == 'oi'
         for gretting in NORMAL_GREETING:
             if gretting in phrase:
                 return random.choice(NORMAL_GREETING).capitalize()

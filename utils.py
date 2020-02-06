@@ -3,10 +3,9 @@ from telepot.loop import MessageLoop
 import requests
 from bs4 import BeautifulSoup
 import re
-from google import google
 from unidecode import unidecode
 
-from constants import LINK_FILTER, MONICA_FILTER, TAG_FILTER, TOKEN, URL_SEARCH, WHO_IS_INTERPRETER, WHAT_IS_INTERPRETER
+from constants import TAG_FILTER
 
 
 def request(url: str):

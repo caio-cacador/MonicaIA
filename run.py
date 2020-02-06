@@ -3,8 +3,7 @@
 import telepot
 from telepot.loop import MessageLoop
 from unidecode import unidecode
-
-from constants import LINK_FILTER, MONICA_FILTER, TAG_FILTER, TOKEN, URL_SEARCH, WHAT_IS_INTERPRETER, WHO_IS_INTERPRETER
+from constants import MONICA_FILTER, TOKEN
 from monica import Monica
 
 
